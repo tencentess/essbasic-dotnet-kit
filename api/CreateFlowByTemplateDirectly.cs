@@ -10,7 +10,7 @@ namespace api
 {
     class CreateFlowByTemplateDirectly
     {
-        public static Dictionary<String, String[]> ChannelCreateFlowByTemplateDirectly(String flowName, String proxyOrganizationName,
+        public static Dictionary<String, String[]> ChannelCreateFlowByTemplateDirectly(String flowName,
                                                                      String templateId,
                                                                      FlowApproverInfo[] flowApproverInfos)
         {

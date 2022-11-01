@@ -42,7 +42,7 @@ namespace bytemplate
             // 发起合同
             // 样例为BtoC
             Dictionary<String, String[]> resp = CreateFlowByTemplateDirectly.ChannelCreateFlowByTemplateDirectly(flowName,
-                    proxyOrganizationName, templateId, flowApproverInfos);
+                     templateId, flowApproverInfos);
 
 
             //  返回相关信息
