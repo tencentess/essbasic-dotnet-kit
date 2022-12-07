@@ -17,7 +17,7 @@ namespace callback
             String signFromHeader = "***********";
 
             // 2. 验证签名
-            String hash = VerifySignature(payload, secretToken);
+            String hash = "sha256=" + VerifySignature(payload, secretToken);
 
             //3. 如果验证通过，继续处理。如果不通过，忽略该请求
             Console.WriteLine(hash == signFromHeader);

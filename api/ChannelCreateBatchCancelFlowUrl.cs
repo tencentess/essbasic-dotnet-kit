@@ -1,32 +1,28 @@
 using System;
-using System.Threading.Tasks;
 using TencentCloud.Common;
-using TencentCloud.Common.Profile;
 using TencentCloud.Essbasic.V20210526;
 using TencentCloud.Essbasic.V20210526.Models;
 
 namespace api
 {
-    class CreateConsoleLoginUrlService
+    class ChannelCreateBatchCancelFlowUrlService
     {
-        public static CreateConsoleLoginUrlResponse CreateConsoleLoginUrl(Agent agent, String proxyOrganizationName)
+        public static ChannelCreateBatchCancelFlowUrlResponse ChannelCreateBatchCancelFlowUrl(Agent agent, String[] flowIds)
         {
             try
             {
-                 // 构造客户端调用实例
+                // 构造客户端调用实例
                 EssbasicClient client = Common.GetClientInstance(Configs.secretId, Configs.secretKey, Configs.endPoint);
 
                 // 实例化一个请求对象,每个接口都会对应一个request对象
-                CreateConsoleLoginUrlRequest req = new CreateConsoleLoginUrlRequest();
+                ChannelCreateBatchCancelFlowUrlRequest req = new ChannelCreateBatchCancelFlowUrlRequest();
 
-                 // 渠道应用相关信息
-                agent.ProxyAppId = "";  //不需要此参数
+                // 渠道应用相关信息
                 req.Agent = agent;
-
-                req.ProxyOrganizationName = proxyOrganizationName;
+                req.FlowIds = flowIds;
                 
-                // 返回的resp是一个CreateConsoleLoginUrlResponse的实例，与请求对象对应
-                CreateConsoleLoginUrlResponse resp = client.CreateConsoleLoginUrlSync(req);
+                // 返回的resp是一个ChannelCreateBatchCancelFlowUrlResponse的实例，与请求对象对应
+                ChannelCreateBatchCancelFlowUrlResponse resp = client.ChannelCreateBatchCancelFlowUrlSync(req);
                 // 输出json格式的字符串回包
                 // Console.WriteLine(AbstractModel.ToJsonString(resp));
                 return resp;
@@ -40,8 +36,9 @@ namespace api
 
         public static void Main1(string[] args)
         {
-            string proxyOrganizationName = "********";
-            CreateConsoleLoginUrlResponse resp = CreateConsoleLoginUrl(Common.getAgent(),proxyOrganizationName);
+            String[] flowIds = new[] { "************************" };
+            ChannelCreateBatchCancelFlowUrlResponse resp = ChannelCreateBatchCancelFlowUrl(Common.getAgent(),
+                flowIds);
             Console.WriteLine(AbstractModel.ToJsonString(resp));
         }
     }
