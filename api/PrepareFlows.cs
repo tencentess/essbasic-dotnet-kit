@@ -3,6 +3,11 @@ using TencentCloud.Common;
 using TencentCloud.Essbasic.V20210526;
 using TencentCloud.Essbasic.V20210526.Models;
 
+// PrepareFlows
+// 该接口 (PrepareFlows) 用于创建待发起文件
+// 用户通过该接口进入签署流程发起的确认页面，进行发起信息二次确认， 如果确认则进行正常发起。
+// 目前该接口只支持B2C，不建议使用，将会废弃。
+// 详细参考 https://cloud.tencent.com/document/api/1420/61519
 namespace api
 {
     class PrepareFlowsService
@@ -18,8 +23,11 @@ namespace api
                 PrepareFlowsRequest req = new PrepareFlowsRequest();
 
                 // 渠道应用相关信息
+                // 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
                 req.Agent = agent;
+                // 多个合同（签署流程）信息，最大支持20个签署流程。
                 req.JumpUrl = jumpUrl;
+                // 操作完成后的跳转地址，最大长度200
                 req.FlowInfos = flowInfos;
                 
                 // 返回的resp是一个PrepareFlowsResponse的实例，与请求对象对应

@@ -5,6 +5,8 @@ using TencentCloud.Common.Profile;
 using TencentCloud.Essbasic.V20210526;
 using TencentCloud.Essbasic.V20210526.Models;
 
+// DescribeFlowDetailInfo 此接口用于查询合同(签署流程)的详细信息。
+// 详细参考 https://cloud.tencent.com/document/api/1420/66683
 namespace api
 {
     class DescribeFlowDetailInfoService
@@ -19,8 +21,9 @@ namespace api
                 DescribeFlowDetailInfoRequest req = new DescribeFlowDetailInfoRequest();
 
                 // 渠道应用相关信息
+                // 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
                 req.Agent = agent;
-                // 多个合同（签署流程）信息
+                // 合同(流程)编号数组，最多支持100个
                 req.FlowIds = flowIds;
                 
                 // 返回的resp是一个DescribeFlowDetailInfoResponse的实例，与请求对象对应

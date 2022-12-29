@@ -3,6 +3,9 @@ using TencentCloud.Common;
 using TencentCloud.Essbasic.V20210526;
 using TencentCloud.Essbasic.V20210526.Models;
 
+// CreateChannelFlowEvidenceReport
+// 创建出证报告，返回报告 ID
+// 详细参考 https://cloud.tencent.com/document/api/1420/79688
 namespace api
 {
     class CreateChannelFlowEvidenceReportService
@@ -19,7 +22,9 @@ namespace api
                 CreateChannelFlowEvidenceReportRequest req = new CreateChannelFlowEvidenceReportRequest();
 
                 // 渠道应用相关信息
+                // 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填
                 req.Agent = agent;
+                // 签署流程编号，合同id
                 req.FlowId = flowId;
                 
                 // 返回的resp是一个CreateChannelFlowEvidenceReportResponse的实例，与请求对象对应

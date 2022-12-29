@@ -6,6 +6,9 @@ using TencentCloud.Common.Profile;
 using TencentCloud.Essbasic.V20210526;
 using TencentCloud.Essbasic.V20210526.Models;
 
+// CreateFlowByFileDirectly 通过文件base64直接发起签署流程，返回flowId和签署链接
+// 本接口是对于发起合同几个接口的封装，详细参数需要根据自身业务进行调整
+// UploadFiles--ChannelCreateFlowByFiles--CreateSignUrls
 namespace api
 {
     class CreateFlowByFileDirectly

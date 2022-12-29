@@ -3,6 +3,9 @@ using TencentCloud.Common;
 using TencentCloud.Essbasic.V20210526;
 using TencentCloud.Essbasic.V20210526.Models;
 
+// ChannelDescribeEmployees
+// 查询企业员工列表
+// 详细参考 https://cloud.tencent.com/document/api/1420/81119
 namespace api
 {
     class ChannelDescribeEmployeesService
@@ -19,9 +22,16 @@ namespace api
                 ChannelDescribeEmployeesRequest req = new ChannelDescribeEmployeesRequest();
 
                 // 渠道应用相关信息
+                // 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
                 req.Agent = agent;
+
+                // 查询过滤实名用户，Key为Status，Values为["IsVerified"]
+                // 根据第三方系统openId过滤查询员工时,Key为StaffOpenId,Values为["OpenId","OpenId",...]
+                // 查询离职员工时，Key为Status，Values为["QuiteJob"]
                 req.Filters = filters;
+                // 返回最大数量，最大为20
                 req.Limit = limit;
+                // 偏移量，默认为0，最大为20000
                 req.Offset = offset;
                 
                 // 返回的resp是一个ChannelDescribeEmployeesResponse的实例，与请求对象对应

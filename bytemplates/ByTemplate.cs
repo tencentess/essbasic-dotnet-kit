@@ -42,6 +42,8 @@ namespace bytemplate
             // 转换为对象数组
             FlowApproverInfo[] flowApproverInfo = flowApproverInfoList.ToArray();
 
+            // 内容控件填充结构，详细说明参考
+            // https://cloud.tencent.com/document/api/1420/61525#FormField
 
             return flowApproverInfo;
         }
@@ -53,16 +55,19 @@ namespace bytemplate
             // 签署参与者信息
             // 个人签署方
             FlowApproverInfo flowApproverInfo = new FlowApproverInfo();
-            // 签署人类型，PERSON-个人；
-            // ORGANIZATION-企业；
-            // ENTERPRISESERVER-企业静默签;
-            // 注：ENTERPRISESERVER 类型仅用于使用文件创建流程（ChannelCreateFlowByFiles）接口；并且仅能指定发起方企业签署方为静默签署；
+
+            // 签署人类型
+            // PERSON-个人/自然人；
+            // ORGANIZATION-企业（企业签署方或模版发起时的企业静默签）；
+            // ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
             flowApproverInfo.ApproverType = "PERSON";
-            // 本环节需要操作人的名字
+
+            // 签署人姓名，最大长度50个字符
             flowApproverInfo.Name = name;
-            // 本环节需要操作人的手机号
+            // 签署人手机号，脱敏显示。大陆手机号为11位，暂不支持海外手机号
             flowApproverInfo.Mobile = mobile;
 
+            // 模板中对应签署方的参与方id
             flowApproverInfo.RecipientId = recipientId;
 
             return flowApproverInfo;
@@ -73,19 +78,26 @@ namespace bytemplate
         {
 
             // 签署参与者信息
-            // 个人签署方
+            // 企业签署方
             FlowApproverInfo flowApproverInfo = new FlowApproverInfo();
-            // 签署人类型，PERSON-个人；
-            // ORGANIZATION-企业；
-            // ENTERPRISESERVER-企业静默签;
-            // 注：ENTERPRISESERVER 类型仅用于使用文件创建流程（ChannelCreateFlowByFiles）接口；并且仅能指定发起方企业签署方为静默签署；
+
+            // 签署人类型
+            // PERSON-个人/自然人；
+            // ORGANIZATION-企业（企业签署方或模版发起时的企业静默签）；
+            // ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
             flowApproverInfo.ApproverType = "ORGANIZATION";
-            // 本环节需要企业操作人的企业名称
+
+            // 企业签署方工商营业执照上的企业名称，签署方为非发起方企业场景下必传，最大长度64个字符；
             flowApproverInfo.OrganizationName = organizationName;
-            //
+
+            // 如果签署方是子客企业，此处需要传子客企业的OrganizationOpenId
+            // 企业签署方在同一渠道下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符；
             flowApproverInfo.OrganizationOpenId = organizationOpenId;
+            // 如果签署方是子客企业，此处需要传子客企业经办人的OpenId
+            // 当签署方为同一渠道下的员工时，该字段若不指定，则发起【待领取】的流程
             flowApproverInfo.OpenId = openId;
 
+            // 模板中对应签署方的参与方id
             flowApproverInfo.RecipientId = recipientId;
 
             return flowApproverInfo;
@@ -95,13 +107,16 @@ namespace bytemplate
         public static FlowApproverInfo BuildServerSignApprover()
         {
             // 签署参与者信息
-            // 个人签署方
+            // 企业静默签
             FlowApproverInfo flowApproverInfo = new FlowApproverInfo();
-            // 签署人类型，PERSON-个人；
-            // ORGANIZATION-企业；
-            // ENTERPRISESERVER-企业静默签;
-            // 注：ENTERPRISESERVER 类型仅用于使用文件创建流程（ChannelCreateFlowByFiles）接口；并且仅能指定发起方企业签署方为静默签署；
+
+            // 签署人类型
+            // PERSON-个人/自然人；
+            // ORGANIZATION-企业（企业签署方或模版发起时的企业静默签）；
+            // ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
             flowApproverInfo.ApproverType = "ENTERPRISESERVER";
+
+            // 注：此时发起方会替换为接口调用的企业+经办人，所以不需要传签署方信息
 
             return flowApproverInfo;
         }

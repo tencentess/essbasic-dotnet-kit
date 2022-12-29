@@ -3,6 +3,9 @@ using TencentCloud.Common;
 using TencentCloud.Essbasic.V20210526;
 using TencentCloud.Essbasic.V20210526.Models;
 
+// ChannelVerifyPdf
+// 合同文件验签
+// 详细参考 https://cloud.tencent.com/document/api/1420/80799
 namespace api
 {
     class ChannelVerifyPdfService
@@ -19,7 +22,9 @@ namespace api
                 ChannelVerifyPdfRequest req = new ChannelVerifyPdfRequest();
 
                 // 渠道应用相关信息
+                // 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
                 req.Agent = agent;
+                // 合同Id，流程Id
                 req.FlowId = flowId;
                 
                 // 返回的resp是一个ChannelVerifyPdfResponse的实例，与请求对象对应

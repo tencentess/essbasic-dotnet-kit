@@ -3,6 +3,12 @@ using TencentCloud.Common;
 using TencentCloud.Essbasic.V20210526;
 using TencentCloud.Essbasic.V20210526.Models;
 
+// ChannelDescribeOrganizationSeals
+// 查询渠道子客企业电子印章，需要操作者具有管理印章权限
+// 客户指定需要获取的印章数量和偏移量，数量最多100，超过100按100处理；
+// 入参InfoType控制印章是否携带授权人信息，为1则携带，为0则返回的授权人信息为空数组。
+// 接口调用成功返回印章的信息列表还有企业印章的总数。
+// 详细参考 https://cloud.tencent.com/document/api/1420/82455
 namespace api
 {
     class ChannelDescribeOrganizationSealsService
@@ -19,10 +25,15 @@ namespace api
                 ChannelDescribeOrganizationSealsRequest req = new ChannelDescribeOrganizationSealsRequest();
 
                 // 渠道应用相关信息
+                // 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
                 req.Agent = agent;
+                // 查询信息类型，为1时返回授权用户，为其他值时不返回
                 req.InfoType = infoType;
+                // 印章id（没有输入返回所有）
                 req.SealId = sealId;
+                // 返回最大数量，最大为100
                 req.Limit = limit;
+                // 偏移量，默认为0，最大为20000
                 req.Offset = offset;
                 
                 // 返回的resp是一个ChannelDescribeOrganizationSealsResponse的实例，与请求对象对应

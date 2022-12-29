@@ -5,6 +5,10 @@ using TencentCloud.Common.Profile;
 using TencentCloud.Essbasic.V20210526;
 using TencentCloud.Essbasic.V20210526.Models;
 
+// UploadFiles 用于生成pdf资源编号（FileIds）来配合“用PDF创建流程”接口使用，使用场景可详见“用PDF创建流程”接口说明。
+// 调用时需要设置Domain, 正式环境为 file.ess.tencent.cn
+// 测试环境为 https://file.test.ess.tencent.cn
+// 详细参考 https://cloud.tencent.com/document/api/1420/71479
 namespace api
 {
     class UploadFilesService
@@ -18,12 +22,14 @@ namespace api
                 // 实例化一个请求对象,每个接口都会对应一个request对象
                 UploadFilesRequest req = new UploadFilesRequest();
 
-                // 渠道应用相关信息
+                // 应用相关信息，appid 和proxyappid 必填
                 req.Agent = agent;
-                // 1. TEMPLATE - 模板； 文件类型：.pdf
-                // 2. DOCUMENT - 签署过程及签署后的合同文档/图片控件 文件类型：.pdf/.jpg/.png
+                // 文件对应业务类型
+                // 1. TEMPLATE - 模板； 文件类型：.pdf/.doc/.docx/.html
+                // 2. DOCUMENT - 签署过程及签署后的合同文档/图片控件 文件类型：.pdf/.doc/.docx/.jpg/.png/.xls.xlsx/.html
                 req.BusinessType="DOCUMENT";
 
+                // 上传文件内容数组，最多支持20个文件
                 UploadFile file = new UploadFile();
                 // Base64编码后的文件内容
                 file.FileBody = fileBase64;
