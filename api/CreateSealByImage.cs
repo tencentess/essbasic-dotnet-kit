@@ -5,7 +5,7 @@ using TencentCloud.Essbasic.V20210526;
 using TencentCloud.Essbasic.V20210526.Models;
 
 // CreateSealByImage
-// 渠道通过图片为子客代创建印章，图片最大5MB
+// 平台企业通过图片为子客代创建印章，图片最大5MB
 // 详细参考 https://cloud.tencent.com/document/api/1420/73067
 namespace api
 {
@@ -22,7 +22,7 @@ namespace api
                 // 实例化一个请求对象,每个接口都会对应一个request对象
                 CreateSealByImageRequest req = new CreateSealByImageRequest();
 
-                // 渠道应用相关信息
+                // 第三方平台应用相关信息
                 // 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
                 req.Agent = agent;
                 // 印章名称，最大长度不超过50字符

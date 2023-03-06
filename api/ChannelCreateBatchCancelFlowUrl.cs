@@ -25,7 +25,7 @@ namespace api
                 // 实例化一个请求对象,每个接口都会对应一个request对象
                 ChannelCreateBatchCancelFlowUrlRequest req = new ChannelCreateBatchCancelFlowUrlRequest();
 
-                // 渠道应用相关信息
+                // 第三方平台应用相关信息
                 // 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
                 req.Agent = agent;
                 // 签署流程Id数组

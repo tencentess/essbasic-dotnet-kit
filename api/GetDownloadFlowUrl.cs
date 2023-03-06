@@ -22,7 +22,7 @@ namespace api
                 // 实例化一个请求对象,每个接口都会对应一个request对象
                 GetDownloadFlowUrlRequest req = new GetDownloadFlowUrlRequest();
 
-                // 渠道应用相关信息
+                // 第三方平台应用相关信息
                 // 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
                 req.Agent = agent;
                 // 文件夹数组，签署流程总数不能超过50个，一个文件夹下，不能超过20个签署流程

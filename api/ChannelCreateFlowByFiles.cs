@@ -6,7 +6,7 @@ using TencentCloud.Essbasic.V20210526;
 using TencentCloud.Essbasic.V20210526.Models;
 
 // ChannelCreateFlowByFiles
-// 用于渠道版通过文件创建签署流程。
+// 用于第三方应用集成通过文件创建签署流程。
 // 注意事项：该接口需要依赖“多文件上传”接口生成pdf资源编号（FileIds）进行使用。
 // 此接口静默签能力不可直接使用，需要运营申请
 // 详细参考 https://cloud.tencent.com/document/api/1420/73068
@@ -24,7 +24,7 @@ namespace api
                 // 实例化一个请求对象,每个接口都会对应一个request对象
                 ChannelCreateFlowByFilesRequest req = new ChannelCreateFlowByFilesRequest();
 
-                // 渠道应用相关信息。
+                // 第三方平台应用相关信息。
                 // 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
                 req.Agent = agent;
 
