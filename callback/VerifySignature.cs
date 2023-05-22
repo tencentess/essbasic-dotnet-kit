@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using System.Security.Cryptography;
 
+// 验证回调消息中的签名
 namespace callback
 {
     class CallbackVerify

@@ -11,6 +11,7 @@
 ### 通过源码安装
 前往 Github 仓库 或者 Gitee 仓库 下载最新代码，解压后使用 Visual Studio 2017 打开编译。
 
+
 ## 目录文件说明
 ### api
 api目录是对电子签第三方应用集成所有API的简单封装，以及调用的Example。
@@ -31,8 +32,16 @@ callback目录是电子签第三方应用集成对接的回调解密部分。
 ### testdata
 testdata是一个空白的pdf用于快速发起合同，测试。
 
-### config.php
+### config.cs
 里面定义调用电子签第三方应用集成API需要的一些核心参数。
+
+
+## 运行说明
+<label style="color:red">.Net Framework 4.7版本以下，默认不支持SSL 1.2/1.3，如果出现“发出请求错误”, 请配置如下</label>
+```
+System.Net.ServicePointManager.SecurityProtocol = 
+    SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+```
 
 ## 电子签第三方应用集成官网入口
 [腾讯电子签第三方应用集成](https://cloud.tencent.com/document/api/1420/61534)
