@@ -22,7 +22,7 @@ namespace api
                 // 实例化一个请求对象,每个接口都会对应一个request对象
                 UploadFilesRequest req = new UploadFilesRequest();
 
-                // 应用相关信息，appid 和proxyappid 必填
+                // 应用相关信息，AppId 和 ProxyOrganizationOpenId 必填
                 req.Agent = agent;
                 // 文件对应业务类型
                 // 1. TEMPLATE - 模板； 文件类型：.pdf/.doc/.docx/.html

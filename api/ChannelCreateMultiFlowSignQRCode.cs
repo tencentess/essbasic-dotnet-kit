@@ -24,7 +24,7 @@ namespace api
                 ChannelCreateMultiFlowSignQRCodeRequest req = new ChannelCreateMultiFlowSignQRCodeRequest();
 
                 // 第三方平台应用相关信息。
-                // 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 必填。
+                // 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
                 req.Agent = agent;
                 // 签署流程名称，最大长度200个字符。
                 req.FlowName = flowName;

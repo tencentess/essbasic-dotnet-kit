@@ -25,7 +25,7 @@ namespace api
                 ChannelCreateFlowByFilesRequest req = new ChannelCreateFlowByFilesRequest();
 
                 // 第三方平台应用相关信息。
-                // 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+                // 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
                 req.Agent = agent;
 
                  // 签署pdf文件的资源编号列表，通过UploadFiles接口获取

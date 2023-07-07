@@ -21,7 +21,7 @@ namespace api
                 DescribeFlowDetailInfoRequest req = new DescribeFlowDetailInfoRequest();
 
                 // 第三方平台应用相关信息
-                // 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+                // 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
                 req.Agent = agent;
                 // 合同(流程)编号数组，最多支持100个
                 req.FlowIds = flowIds;

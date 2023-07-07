@@ -22,7 +22,7 @@ namespace api
                 ChannelCreateConvertTaskApiRequest req = new ChannelCreateConvertTaskApiRequest();
 
                 // 第三方平台应用相关信息
-                // 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+                // 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
                 req.Agent = agent;
 
                 // 资源名称，长度限制为256字符

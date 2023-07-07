@@ -24,7 +24,7 @@ namespace api
                 ChannelCancelFlowRequest req = new ChannelCancelFlowRequest();
 
                 // 第三方平台应用相关信息
-                // 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填。
+                // 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
                 req.Agent = agent;
 
                 // 签署流程Id数组，最多100个，超过100不处理

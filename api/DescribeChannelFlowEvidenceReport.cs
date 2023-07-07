@@ -22,7 +22,7 @@ namespace api
                 DescribeChannelFlowEvidenceReportRequest req = new DescribeChannelFlowEvidenceReportRequest();
 
                 // 第三方平台应用相关信息
-                // 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 和 Agent.ProxyAppId 均必填
+                // 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填
                 req.Agent = agent;
                 // 出证报告编号
                 req.ReportId = reportId;
