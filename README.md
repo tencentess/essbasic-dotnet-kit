@@ -44,6 +44,4 @@ System.Net.ServicePointManager.SecurityProtocol =
 ```
 
 ## 电子签第三方应用集成官网入口
-[腾讯电子签第三方应用集成](https://cloud.tencent.com/document/api/1420/61534)
-
-
+[腾讯电子签开发者中心](https://qian.tencent.com/developers/partner/overview)

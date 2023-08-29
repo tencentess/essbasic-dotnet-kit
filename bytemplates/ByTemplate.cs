@@ -56,18 +56,13 @@ namespace bytemplate
             // 个人签署方
             FlowApproverInfo flowApproverInfo = new FlowApproverInfo();
 
-            // 签署人类型
-            // PERSON-个人/自然人；
-            // ORGANIZATION-企业（企业签署方或模板发起时的企业静默签）；
-            // ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
             flowApproverInfo.ApproverType = "PERSON";
 
-            // 签署人姓名，最大长度50个字符
+
             flowApproverInfo.Name = name;
-            // 签署人手机号，脱敏显示。大陆手机号为11位，暂不支持海外手机号
+
             flowApproverInfo.Mobile = mobile;
 
-            // 模板中对应签署方的参与方id
             flowApproverInfo.RecipientId = recipientId;
 
             return flowApproverInfo;
@@ -81,20 +76,13 @@ namespace bytemplate
             // 企业签署方
             FlowApproverInfo flowApproverInfo = new FlowApproverInfo();
 
-            // 签署人类型
-            // PERSON-个人/自然人；
-            // ORGANIZATION-企业（企业签署方或模板发起时的企业静默签）；
-            // ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
             flowApproverInfo.ApproverType = "ORGANIZATION";
 
-            // 企业签署方工商营业执照上的企业名称，签署方为非发起方企业场景下必传，最大长度64个字符；
+
             flowApproverInfo.OrganizationName = organizationName;
 
-            // 如果签署方是子客企业，此处需要传子客企业的OrganizationOpenId
-            // 企业签署方在同一第三方应用集成下的其他合作企业OpenId，签署方为非发起方企业场景下必传，最大长度64个字符；
             flowApproverInfo.OrganizationOpenId = organizationOpenId;
-            // 如果签署方是子客企业，此处需要传子客企业经办人的OpenId
-            // 当签署方为同一平台下的员工时，该字段若不指定，则发起【待领取】的流程
+
             flowApproverInfo.OpenId = openId;
 
             // 模板中对应签署方的参与方id
@@ -110,10 +98,6 @@ namespace bytemplate
             // 企业静默签
             FlowApproverInfo flowApproverInfo = new FlowApproverInfo();
 
-            // 签署人类型
-            // PERSON-个人/自然人；
-            // ORGANIZATION-企业（企业签署方或模板发起时的企业静默签）；
-            // ENTERPRISESERVER-企业静默签（文件发起时的企业静默签字）。
             flowApproverInfo.ApproverType = "ENTERPRISESERVER";
 
             // 注：此时发起方会替换为接口调用的企业+经办人，所以不需要传签署方信息
